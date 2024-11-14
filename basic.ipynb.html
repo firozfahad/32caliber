@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>basic.ipynb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #005454; font-style: italic;}
+.s1 { color: #c3cee3;}
+.s2 { color: #89ddff;}
+.s3 { color: #f78c6c;}
+.s4 { color: #c792ea; font-style: italic;}
+.s5 { color: #c3e88d;}
+</style>
+</head>
+<body bgcolor="#002828">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+basic.ipynb</font>
+</center></td></tr></table>
+<pre><span class="s0">#%% md 
+</span><span class="s1">## exception handling 
+ 
+</span><span class="s0">#%% md 
+</span><span class="s1">#### type of exception 
+* y= x/z but z is 0 
+* y= int(s) but s i not s valid integer 
+* out of index OR file not exist or disk is full 
+</span><span class="s0">#%% 
+</span><span class="s1">print</span><span class="s2">(</span><span class="s3">8</span><span class="s2">)</span>
+<span class="s0">#%% 
+</span><span class="s4">for </span><span class="s1">i </span><span class="s4">in </span><span class="s1">range</span><span class="s2">(</span><span class="s3">8</span><span class="s2">):</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s5">'lope'</span><span class="s2">)</span>
+<span class="s0">#%% md 
+</span><span class="s1">## gcd 
+</span><span class="s0">#%% 
+</span><span class="s2">- </span><span class="s1">code </span><span class="s3">1</span>
+
+<span class="s4">def </span><span class="s1">gcd</span><span class="s2">(</span><span class="s1">m</span><span class="s2">,</span><span class="s1">n</span><span class="s2">):</span>
+    <span class="s1">cf</span><span class="s2">=[]</span>
+    <span class="s4">for </span><span class="s1">i </span><span class="s4">in </span><span class="s1">range</span><span class="s2">(</span><span class="s3">1</span><span class="s2">,</span><span class="s1">min</span><span class="s2">(</span><span class="s1">m</span><span class="s2">,</span><span class="s1">n</span><span class="s2">)+</span><span class="s3">1</span><span class="s2">):</span>
+        <span class="s4">if </span><span class="s2">(</span><span class="s1">m</span><span class="s2">%</span><span class="s1">i</span><span class="s2">)==</span><span class="s3">0 </span><span class="s4">and </span><span class="s2">(</span><span class="s1">n</span><span class="s2">%</span><span class="s3">1</span><span class="s2">)==</span><span class="s3">0</span><span class="s2">:</span>
+            <span class="s1">cf</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s1">i</span><span class="s2">)</span>
+<span class="s0">#%% md 
+</span><span class="s1">a positive integer m is a prime product if it can be written as p*q where p &amp; q are both primes 
+ 
+write a python function `prime_products(m)` that takes an integer m as input and returns True if m is a prime product and `false` if otherwise 
+</span><span class="s0">#%% 
+</span><span class="s4">def </span><span class="s1">factors</span><span class="s2">(</span><span class="s1">n</span><span class="s2">):</span>
+    <span class="s1">fl</span><span class="s2">=[]</span>
+
+    <span class="s4">for </span><span class="s1">i </span><span class="s4">in </span><span class="s1">range</span><span class="s2">(</span><span class="s3">1</span><span class="s2">,</span><span class="s1">n</span><span class="s2">+</span><span class="s3">1</span><span class="s2">):</span>
+        <span class="s4">if </span><span class="s1">n</span><span class="s2">%</span><span class="s1">i</span><span class="s2">==</span><span class="s3">0</span><span class="s2">:</span>
+            <span class="s1">fl</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s1">i</span><span class="s2">)</span>
+    <span class="s4">return </span><span class="s1">fl</span>
+
+<span class="s1">print</span><span class="s2">(</span><span class="s1">factors</span><span class="s2">(</span><span class="s3">8989</span><span class="s2">))</span>
+<span class="s0">#%% 
+</span><span class="s4">def </span><span class="s1">isprime</span><span class="s2">(</span><span class="s1">n</span><span class="s2">):</span>
+    <span class="s4">return</span><span class="s2">(</span><span class="s1">factors</span><span class="s2">(</span><span class="s1">n</span><span class="s2">)==[</span><span class="s3">1</span><span class="s2">,</span><span class="s1">n</span><span class="s2">])</span>
+
+
+<span class="s0">#%% 
+</span><span class="s4">def </span><span class="s1">prime_product</span><span class="s2">(</span><span class="s1">n</span><span class="s2">):</span>
+    <span class="s4">for </span><span class="s1">i </span><span class="s4">in </span><span class="s1">range</span><span class="s2">(</span><span class="s3">1</span><span class="s2">,</span><span class="s1">n</span><span class="s2">+</span><span class="s3">1</span><span class="s2">):</span>
+        <span class="s4">if </span><span class="s1">n</span><span class="s2">%</span><span class="s1">i</span><span class="s2">==</span><span class="s3">0</span><span class="s2">:</span>
+            <span class="s4">if </span><span class="s1">isprime</span><span class="s2">(</span><span class="s1">i</span><span class="s2">) </span><span class="s4">and </span><span class="s1">isprime</span><span class="s2">(</span><span class="s1">n</span><span class="s2">//</span><span class="s1">i</span><span class="s2">):</span>
+                <span class="s4">return</span><span class="s2">(</span><span class="s4">True</span><span class="s2">)</span>
+    <span class="s4">return</span><span class="s2">(</span><span class="s4">False</span><span class="s2">)</span>
+
+<span class="s1">n</span><span class="s2">=</span><span class="s1">int</span><span class="s2">(</span><span class="s1">input</span><span class="s2">())</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">prime_product</span><span class="s2">(</span><span class="s1">n</span><span class="s2">))</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 2 del_char(s,c)  --&gt; 2 string a s input 
+ 
+&gt; len(c) -&gt; 1 
+&gt; returns bu deleting occurence of c in s 
+&gt; if len(c)&gt;1 : return s 
+</span><span class="s0">#%% 
+</span><span class="s4">def </span><span class="s1">del_char</span><span class="s2">(</span><span class="s1">s</span><span class="s2">,</span><span class="s1">c</span><span class="s2">):</span>
+    <span class="s4">if </span><span class="s1">len</span><span class="s2">(</span><span class="s1">c</span><span class="s2">)!=</span><span class="s3">1</span><span class="s2">:</span>
+        <span class="s4">return </span><span class="s1">s</span>
+    <span class="s1">snew</span><span class="s2">=</span><span class="s5">&quot;&quot;</span>
+    <span class="s4">for </span><span class="s1">i </span><span class="s4">in </span><span class="s1">s</span><span class="s2">:</span>
+        <span class="s4">if </span><span class="s1">i</span><span class="s2">!=</span><span class="s1">c</span><span class="s2">:</span>
+            <span class="s1">snew</span><span class="s2">=</span><span class="s1">snew</span><span class="s2">+</span><span class="s1">i</span>
+    <span class="s4">return </span><span class="s1">snew</span>
+
+
+<span class="s1">s</span><span class="s2">=</span><span class="s1">input</span><span class="s2">()</span>
+<span class="s1">c</span><span class="s2">=</span><span class="s1">input</span><span class="s2">()</span>
+
+<span class="s1">print</span><span class="s2">(</span><span class="s1">del_char</span><span class="s2">(</span><span class="s1">s</span><span class="s2">,</span><span class="s1">c</span><span class="s2">))</span>
+
+<span class="s0">#%% md 
+</span><span class="s1">### 3 shuffle , l1 n l2 
+</span><span class="s0">#%% 
+</span><span class="s4">def </span><span class="s1">shuffle</span><span class="s2">(</span><span class="s1">l1</span><span class="s2">,</span><span class="s1">l2</span><span class="s2">):</span>
+    <span class="s4">if </span><span class="s1">len</span><span class="s2">(</span><span class="s1">l1</span><span class="s2">)&lt;</span><span class="s1">len</span><span class="s2">(</span><span class="s1">l2</span><span class="s2">):</span>
+        <span class="s1">minlen</span><span class="s2">=</span><span class="s1">len</span><span class="s2">(</span><span class="s1">l1</span><span class="s2">)</span>
+    <span class="s4">else</span><span class="s2">:</span>
+        <span class="s1">minlen</span><span class="s2">=</span><span class="s1">len</span><span class="s2">(</span><span class="s1">l2</span><span class="s2">)</span>
+
+    <span class="s1">shuffled</span><span class="s2">=[]</span>
+    <span class="s4">for </span><span class="s1">i </span><span class="s4">in </span><span class="s1">range</span><span class="s2">(</span><span class="s1">minlen</span><span class="s2">):</span>
+        <span class="s1">shuffled</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s1">l1</span><span class="s2">[</span><span class="s1">i</span><span class="s2">])</span>
+        <span class="s1">shuffled</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s1">l2</span><span class="s2">[</span><span class="s1">i</span><span class="s2">])</span>
+
+    <span class="s1">shuffled</span><span class="s2">=</span><span class="s1">shuffled</span><span class="s2">+</span><span class="s1">l1</span><span class="s2">[</span><span class="s1">minlen</span><span class="s2">:] + </span><span class="s1">l2</span><span class="s2">[</span><span class="s1">minlen</span><span class="s2">:]</span>
+
+    <span class="s4">return </span><span class="s1">shuffled</span>
+
+<span class="s1">l1</span><span class="s2">=</span><span class="s1">eval</span><span class="s2">(</span><span class="s1">input</span><span class="s2">())</span>
+<span class="s1">l2</span><span class="s2">=</span><span class="s1">eval</span><span class="s2">(</span><span class="s1">input</span><span class="s2">())</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">shuffle</span><span class="s2">(</span><span class="s1">l1</span><span class="s2">,</span><span class="s1">l2</span><span class="s2">))</span>
+<span class="s0">#%% md 
+</span><span class="s1">## pt2 
+</span><span class="s0">#%% md 
+</span></pre>
+</body>
+</html>
